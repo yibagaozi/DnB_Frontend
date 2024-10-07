@@ -3,7 +3,13 @@ import { PageContainer } from '@ant-design/pro-components';
 import { useRequest } from '@umijs/max';
 import { Button, Card, List, Typography } from 'antd';
 import type { CardListItemDataType } from './data.d';
-import { queryFakeList } from './service';
+import {
+  queryFakeList,
+  enableDevice,
+  disableDevice,
+  enableAllDevices,
+  disableAllDevices,
+} from './service';
 import useStyles from './style.style';
 const { Paragraph } = Typography;
 const CardList = () => {
@@ -14,6 +20,43 @@ const CardList = () => {
     });
   });
   const list = data?.list || [];
+
+  const handleEnable = async (title) => {
+    try {
+      enableDevice(title);
+
+    } catch (error) {
+      console.error('开启设备失败:', error);
+    }
+  };
+
+  // 禁用单个设备
+  const handleDisable = async (title) => {
+    try {
+      disableDevice(title);
+    } catch (error) {
+      console.error('关闭设备失败:', error);
+    }
+  };
+
+  // 启用所有设备
+  const handleEnableAll = async () => {
+    try {
+      enableAllDevices();
+    } catch (error) {
+      console.error('开启所有设备失败:', error);
+    }
+  };
+
+  // 禁用所有设备
+  const handleDisableAll = async () => {
+    try {
+      disableAllDevices();
+    } catch (error) {
+      console.error('关闭所有设备失败:', error);
+    }
+  };
+
   const content = (
     <div className={styles.pageHeaderContent}>
       <p>
@@ -67,7 +110,28 @@ const CardList = () => {
                   <Card
                     hoverable
                     className={styles.card}
-                    actions={[<a key="option1">开启</a>, <a key="option2">关闭</a>]}
+                    actions={[
+                      <a
+                        key="enable"
+                        onClick={(e) => {
+                          e.preventDefault(); // 防止默认跳转行为
+                          handleEnable(item.title);
+                        }}
+                        style={{ color: '#1890ff' }} // 可选：自定义颜色
+                      >
+                        开启
+                      </a>,
+                      <a
+                        key="disable"
+                        onClick={(e) => {
+                          e.preventDefault(); // 防止默认跳转行为
+                          handleDisable(item.title);
+                        }}
+                      //style={{ color: 'red' }} // 可选：自定义颜色
+                      >
+                        关闭
+                      </a>,
+                    ]}
                   >
                     <Card.Meta
                       avatar={<img alt="" className={styles.cardAvatar} src={item.avatar} />}

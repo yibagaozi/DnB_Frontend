@@ -40,7 +40,7 @@ const IntroduceRow = ({ loading, averageTemperature }: IntroduceRowProps) => {
           footer={<Field label=" " value={` `} />}
           contentHeight={100}
         >
-          <Field label="室外温度 35°C" value={` `} />
+          <Field label="室外温度 18°C" value={` `} />
         </ChartCard>
 
       </Col>

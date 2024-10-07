@@ -8,7 +8,7 @@ type ParamsType = {
 export async function queryFakeList(
   params: ParamsType,
 ): Promise<{ data: { list: BasicListItemDataType[] } }> {
-  return request('/api/getDeviceList.php', {
+  return request('/device/list', {
     params,
   });
 }
@@ -50,13 +50,13 @@ export async function updateFakeList(
 }
 
 /* export async function queryHomeDeviceInfo(): Promise<{ data: HomeDeviceInfoType }> {
-  return request('/api/getHomeDeviceInfo.php');
+  return request('/device/info');
 } */
 
 export async function queryHomeDeviceInfo(
   params: ParamsType,
 ): Promise<{ data: { list: BasicListItemDataType[] } }> {
-  return request('/api/getHomeDeviceInfo.php', {
+  return request('/device/info', {
     params,
   });
 }
