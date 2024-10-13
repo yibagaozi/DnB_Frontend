@@ -37,7 +37,7 @@ export function disableDevice(title: string): Promise<any> {
  * 启用所有设备
  */
 export function enableAllDevices(): Promise<any> {
-  return request(`/api/devices/enableAll`, {
+  return request(`/device/enableAll`, {
     method: 'POST',
   });
 }
@@ -46,7 +46,7 @@ export function enableAllDevices(): Promise<any> {
  * 禁用所有设备
  */
 export function disableAllDevices(): Promise<any> {
-  return request(`/api/devices/disableAll`, {
+  return request(`/device/disableAll`, {
     method: 'POST',
   });
 }

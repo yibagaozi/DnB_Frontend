@@ -63,13 +63,13 @@ const CardList = () => {
         {list.length}个设备
       </p>
       <div className={styles.contentLink}>
-        <a>
+        <a onClick={handleEnableAll} style={{ marginRight: 16, cursor: 'pointer' }}>
           <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg" />{' '}
-          全部开启
+          开启智能调节模式
         </a>
-        <a>
+        <a onClick={handleDisableAll} style={{ marginRight: 16, cursor: 'pointer' }}>
           <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" />{' '}
-          全部关闭
+          关闭智能调节模式
         </a>
         <a>
           <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" />{' '}

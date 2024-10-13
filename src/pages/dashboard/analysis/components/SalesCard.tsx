@@ -50,8 +50,7 @@ const SalesCard = ({ loading, visitData }: { loading: boolean; visitData: DataIt
               <InfoCircleOutlined />
             </Tooltip>
           }
-          //total={numeral(884).format('0,0')}
-          /* footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />} */
+
           contentHeight={200}
         >
           <Area

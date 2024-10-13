@@ -68,22 +68,7 @@ const TableList: React.FC = () => {
       dataIndex: 'desc',
       valueType: 'textarea',
     },
-    /*     {
-          title: (
-            <FormattedMessage
-              id="pages.searchTable.titleCallNo"
-              defaultMessage="Number of service calls"
-            />
-          ),
-          dataIndex: 'callNo',
-          sorter: true,
-          hideInForm: true,
-          renderText: (val: string) =>
-            `${val}${intl.formatMessage({
-              id: 'pages.searchTable.tenThousand',
-              defaultMessage: ' 万 ',
-            })}`,
-        }, */
+
     {
       title: <FormattedMessage id="pages.searchTable.titleStatus" defaultMessage="Status" />,
       dataIndex: 'status',

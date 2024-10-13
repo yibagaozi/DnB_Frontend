@@ -18,10 +18,11 @@ const topColResponsiveProps = {
 };
 type IntroduceRowProps = {
   loading: boolean;
-  averageTemperature: string; // Ensure the correct type here
+  averageTemperature: string;
+  averageHumidity: string;
 };
 
-const IntroduceRow = ({ loading, averageTemperature }: IntroduceRowProps) => {
+const IntroduceRow = ({ loading, averageTemperature, averageHumidity }: IntroduceRowProps) => {
   const { styles } = useStyles();
 
   return (
@@ -44,61 +45,7 @@ const IntroduceRow = ({ loading, averageTemperature }: IntroduceRowProps) => {
         </ChartCard>
 
       </Col>
-      {/*       <Col {...topColResponsiveProps}>
-        <ChartCard
-          bordered={false}
-          loading={loading}
-          title="访问量"
-          action={
-            <Tooltip title="指标说明">
-              <InfoCircleOutlined />
-            </Tooltip>
-          }
-          total={numeral(8846).format('0,0')}
-          footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />}
-          contentHeight={46}
-        >
-          <Area
-            xField="x"
-            yField="y"
-            shapeField="smooth"
-            height={46}
-            axis={false}
-            style={{
-              fill: 'linear-gradient(-90deg, white 0%, #975FE4 100%)',
-              fillOpacity: 0.6,
-              width: '100%',
-            }}
-            padding={-20}
-            data={visitData}
-          />
-        </ChartCard>
-      </Col> */}
-      {/*<Col {...topColResponsiveProps}>
-        <ChartCard
-          bordered={false}
-          loading={loading}
-          title="支付笔数"
-          action={
-            <Tooltip title="指标说明">
-              <InfoCircleOutlined />
-            </Tooltip>
-          }
-          total={numeral(6560).format('0,0')}
-          footer={<Field label="转化率" value="60%" />}
-          contentHeight={46}
-        >
-          <Column
-            xField="x"
-            yField="y"
-            padding={-20}
-            axis={false}
-            height={46}
-            data={visitData}
-            scale={{ x: { paddingInner: 0.4 } }}
-          />
-        </ChartCard>
-      </Col> */}
+
       <Col {...topColResponsiveProps}>
         <ChartCard
           loading={loading}
@@ -109,33 +56,12 @@ const IntroduceRow = ({ loading, averageTemperature }: IntroduceRowProps) => {
               <InfoCircleOutlined />
             </Tooltip>
           }
-          total="38 %"
+          total={() => averageHumidity}
           footer={<Field label=" " value={` `} />}
-          /* footer={
-            <div
-              style={{
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-              }}
-            >
-              <Trend
-                flag="up"
-                style={{
-                  marginRight: 16,
-                }}
-              >
-                周同比
-                <span className={styles.trendText}>12%</span>
-              </Trend>
-              <Trend flag="down">
-                日同比
-                <span className={styles.trendText}>11%</span>
-              </Trend>
-            </div>
-          } */
+
           contentHeight={100}
         >
-          <Progress percent={38} strokeColor={{ from: '#108ee9', to: '#87d068' }} status="active" />
+          <Progress percent={parseFloat(averageHumidity)} strokeColor={{ from: '#108ee9', to: '#87d068' }} status="active" />
         </ChartCard>
       </Col>
     </Row>

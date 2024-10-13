@@ -11,6 +11,10 @@ export type averageTemperature = {
   averageTemperature: string;
 }
 
+export type averageHumidity = {
+  averageTemperature: string;
+}
+
 export type SearchDataType = {
   index: number;
   keyword: string;
